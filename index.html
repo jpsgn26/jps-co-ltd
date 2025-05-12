@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jps Co Ltd</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="all">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #f0f0f0;
+      background-color: #000;
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+    header {
+      padding: 100px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3.5em;
+      color: #00ffff;
+      text-shadow: 2px 2px 10px #000;
+    }
+    header img {
+      max-width: 300px;
+      height: auto;
+    }
+    header p {
+      font-size: 1.5em;
+      text-shadow: 1px 1px 4px #000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    nav a {
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #ff4081;
+    }
+    main {
+      display: block;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+      backdrop-filter: brightness(1.1);
+    }
+    section h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 30px;
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+    .service {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      transition: transform 0.3s, background 0.3s;
+      text-align: center;
+    }
+    .service img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .service:hover {
+      transform: scale(1.05);
+      background: rgba(0, 255, 255, 0.2);
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: auto;
+      background: rgba(255, 255, 255, 0.07);
+      padding: 30px;
+      border-radius: 15px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+    input, textarea, button {
+      padding: 12px;
+      font-size: 1em;
+      border: none;
+      border-radius: 5px;
+    }
+    input, textarea {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+    }
+    button {
+      background: #00ffff;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+    }
+    button:hover {
+      background: #ff4081;
+      color: white;
+      transform: scale(1.05);
+    }
+    footer {
+      background: url('https://images.unsplash.com/photo-1618005198919-00c4f7b4de5a?auto=format&fit=crop&w=1470&q=80') no-repeat center center/cover;
+      background-blend-mode: overlay;
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .socials {
+      margin-top: 20px;
+    }
+    .socials a {
+      margin: 0 10px;
+      color: #00ffff;
+      text-decoration: none;
+      font-size: 1.5em;
+    }
+    .socials a:hover {
+      color: #ff4081;
+    }
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+      header p {
+        font-size: 1.2em;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .service img {
+        height: 120px;
+      }
+      form {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="bg"></canvas>
+  <header>
+    <h1><img src="https://via.placeholder.com/250x80.png?text=JPS+CO+LTD+LOGO" alt="JPS CO LTD Logo"></h1>
+    <p>Empowering Innovation in IT & Financial Markets</p>
+  </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <main>
+    <section id="about">
+      <h2>About Us</h2>
+      <p>
+        JPS CO LTD is a professional IT and Financial Markets company offering world-class solutions. We help businesses grow through automated trading bots, intelligent software, web platforms, and digital consultancy.
+      </p>
+    </section>
+    <section id="services">
+      <h2>Our Services</h2>
+      <div class="services">
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1616077166984-b542c4f4ef6b?auto=format&fit=crop&w=800&q=80" alt="Trading Bots">
+          <h3>Trading Systems & Bots</h3>
+          <p>We create powerful, AI-driven trading bots for Forex, Crypto, and Stock Markets customized to your strategy.</p>
+        </div>
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80" alt="Web Development">
+          <h3>Web & App Development</h3>
+          <p>Stunning websites and mobile apps with responsive design and intuitive UX/UI for your business growth.</p>
+        </div>
+        <div class="service">
+          <img src="https://images.unsplash.com/photo-1581090700227-1e8e4d52d2d2?auto=format&fit=crop&w=800&q=80" alt="IT Consulting">
+          <h3>IT Consulting & Security</h3>
+          <p>From networking to cloud infrastructure, we build and secure your IT environment for maximum performance.</p>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h2>Contact Us</h2>
+      <form>
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 JPS CO LTD | All Rights Reserved</p>
+    <p>Email: joakimusilayo023@gmail.com | WhatsApp: +255652158609</p>
+    <div class="socials">
+      <a href="https://instagram.com/jps_gn" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/jps_gn" target="_blank"><i class="fab fa-x-twitter"></i></a>
+      <a href="https://facebook.com/jps_gn" target="_blank"><i class="fab fa-facebook"></i></a>
+    </div>
+  </footer>
+  <script type="module">
+    import * as THREE from 'https://cdn.skypack.dev/three@0.136.0';
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg') });
+    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    camera.position.setZ(30);
+    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
+    const material = new THREE.MeshStandardMaterial({ color: 0x00ffff });
+    const torus = new THREE.Mesh(geometry, material);
+    scene.add(torus);
+    const pointLight = new THREE.PointLight(0xffffff);
+    pointLight.position.set(20, 20, 20);
+    scene.add(pointLight);
+    function animate() {
+      requestAnimationFrame(animate);
+      torus.rotation.x += 0.01;
+      torus.rotation.y += 0.005;
+      renderer.render(scene, camera);
+    }
+    animate();
+  </script>
+</body>
+</html>
